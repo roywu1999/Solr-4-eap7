@@ -39,3 +39,6 @@ http://127.0.0.1:8080/apache-solr-4.0.0/#/
 ONLY warning I found so far is the following info:
 13:18:02,455 WARN [org.apache.solr.handler.admin.SystemInfoHandler] (default task-3) Error getting JMX properties: java.lang.UnsupportedOperationException: Boot class path mechanism is not supported  
 
+How to build on community docker file to run solr4.0.0 on Wildfly
+  1) check git Dockerfile from repos and build the image locally: docker build --tag=jboss/wildfly-solr4.0.0 .
+  2) docker run locally: docker run -p 8080:8080 -p 9990:9990 -it jboss/wildfly-solr4.0.0
