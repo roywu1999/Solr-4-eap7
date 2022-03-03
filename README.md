@@ -12,33 +12,39 @@ Latest - EAP 7.4
 Barebone Solr-4.0.0 zip file:
 https://archive.apache.org/dist/lucene/solr/4.0.0/apache-solr-4.0.0.zip 
 
-Step 1: Download EAP 7.4 Check the following link:
+**Step 1: Download EAP 7.4 Check the following link**
 RedHat JBoss EAP
 https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?product=appplatform&downloadType=distributions 
 Latest - EAP 7.4
 
-Step 2: Download barebone Solr-4.0.0 zip file:
+**Step 2: Download barebone Solr-4.0.0 zip file**
 
 https://archive.apache.org/dist/lucene/solr/4.0.0/apache-solr-4.0.0.zip 
 unzip apache-solr-4.0.0.zip .
 
-Step 3: startup standalone EAP7.4 (add-user.sh before you create a new "admin" user)
-~/jboss-home/bin/add-user.sh
+**Step 3: startup standalone EAP7.4 (add-user.sh before you create a new "admin" user)**
+
+<JBOSS-HOME>/bin/add-user.sh
 after you add a new user, you can startup jboss app:
-~/jboss-home/bin/standalone.sh
+<JBOSS-HOME>/bin/standalone.sh
 
 you can open the console: you can access by using the user you create on step3
 http://127.0.0.1:9990/console/ 
 
-Step 4: deploy the solr*.war file by using the console on step 3
-before you deploy the war file, please copy the apache-solr-4.0.0 example solr directory to your classpath.
+**Step 4: deploy the solr*.war file by using the console on step 3**
+
+  Before you deploy the war file, please copy the apache-solr-4.0.0 example solr directory to your classpath.
 Which would be by default: <jboss-home>/bin/ when you start up jboss eap7.4
 
-Step 5: after deploy successfully you can access solr console
-http://127.0.0.1:8080/apache-solr-4.0.0/#/ 
-ONLY warning I found so far is the following info:
+**Step 5: after deploy successfully you can access solr console**
+
+  http://127.0.0.1:8080/apache-solr-4.0.0/#/ 
+
+  ONLY warning I found so far is the following info:
 13:18:02,455 WARN [org.apache.solr.handler.admin.SystemInfoHandler] (default task-3) Error getting JMX properties: java.lang.UnsupportedOperationException: Boot class path mechanism is not supported  
 
-How to build on community docker file to run solr4.0.0 on Wildfly
-  1) check git Dockerfile from repos and build the image locally: docker build --tag=jboss/wildfly-solr4.0.0 .
-  2) docker run locally: docker run -p 8080:8080 -p 9990:9990 -it jboss/wildfly-solr4.0.0
+**How to build on community docker file to run solr4.0.0 on Wildfly**
+  1) check git Dockerfile from repos and build the image locally: 
+  docker build --tag=jboss/wildfly-solr4.0.0 .
+  2) docker run locally: 
+  docker run -p 8080:8080 -p 9990:9990 -it jboss/wildfly-solr4.0.0
